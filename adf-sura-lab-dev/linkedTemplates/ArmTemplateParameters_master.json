@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-sura-lab-dev"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"ds_sourceazuresqldev_connectionString": {
+			"value": ""
+		},
+		"ls_sourceADLSCopyFiles_accountKey": {
+			"value": ""
+		},
+		"ls_sourceADLSCopyFiles_properties_typeProperties_url": {
+			"value": "https://suralabadlsdev.dfs.core.windows.net"
+		},
+		"TumblingWindowTrigger_properties_pipeline_parameters_startdate": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"TumblingWindowTrigger_properties_pipeline_parameters_enddate": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
