@@ -1,0 +1,26 @@
+{
+	"name": "everyday_Schedule_trigger",
+	"properties": {
+		"description": "copyfile",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyFiles",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2024-03-20T08:48:00",
+				"endTime": "2024-03-20T09:03:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

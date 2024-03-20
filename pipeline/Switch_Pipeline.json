@@ -1,0 +1,90 @@
+{
+	"name": "Switch_Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@pipeline().parameters.input",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "SalesData",
+							"activities": [
+								{
+									"name": "SalesData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 3
+									}
+								}
+							]
+						},
+						{
+							"value": "FinancialData",
+							"activities": [
+								{
+									"name": "FinancialData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						},
+						{
+							"value": "EmployeesData",
+							"activities": [
+								{
+									"name": "EmployeesData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						}
+					],
+					"defaultActivities": [
+						{
+							"name": "Default",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "CopyFiles",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"input": {
+				"type": "string",
+				"defaultValue": "SalesData"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-13T04:22:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

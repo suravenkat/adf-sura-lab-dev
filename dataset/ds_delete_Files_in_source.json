@@ -1,0 +1,28 @@
+{
+	"name": "ds_delete_Files_in_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourceADLSCopyFiles",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SourceFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().SourceFileName",
+					"type": "Expression"
+				},
+				"folderPath": "source",
+				"fileSystem": "suralabadlsdev"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

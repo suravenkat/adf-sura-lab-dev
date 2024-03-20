@@ -1,0 +1,67 @@
+{
+	"name": "If_Condition",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@contains(pipeline().parameters.input, 'wronginput')",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "files_FalseCondition",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "CopyFiles",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "sqlTable_TrueCondition",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "pipeline1",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"input": {
+				"type": "array",
+				"defaultValue": [
+					"sqltable",
+					"file"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-13T04:22:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

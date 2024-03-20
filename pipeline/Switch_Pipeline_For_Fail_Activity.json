@@ -1,0 +1,84 @@
+{
+	"name": "Switch_Pipeline_For_Fail_Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@pipeline().parameters.input",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "SalesData",
+							"activities": [
+								{
+									"name": "SalesData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 3
+									}
+								}
+							]
+						},
+						{
+							"value": "FinancialData",
+							"activities": [
+								{
+									"name": "FinancialData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						},
+						{
+							"value": "EmployeesData",
+							"activities": [
+								{
+									"name": "EmployeesData",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						}
+					],
+					"defaultActivities": [
+						{
+							"name": "Fail_Pipeline",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "WrongInput.ProvideValidInput",
+								"errorCode": "42020"
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"input": {
+				"type": "string",
+				"defaultValue": "SalesData"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-02-13T04:26:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

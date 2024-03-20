@@ -1,0 +1,17 @@
+{
+	"name": "ds_oldwatermark",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ds_sourceazuresqldev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "watermarktable"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "ds_LookupForEachMultisql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ds_sourceazuresqldev",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ForEach_DS"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "employees"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

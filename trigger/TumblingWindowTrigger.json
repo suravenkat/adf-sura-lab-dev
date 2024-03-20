@@ -1,0 +1,31 @@
+{
+	"name": "TumblingWindowTrigger",
+	"properties": {
+		"description": "TumblingWindowTrigger",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "TumblingWindow_Pipeline",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"startdate": "@trigger().outputs.windowStartTime",
+				"enddate": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2023-06-30T03:39:00Z",
+			"endTime": "2023-07-08T03:39:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
