@@ -1,5 +1,13 @@
 {
 	"name": "adf-sura-lab-dev",
+	"properties": {
+		"globalParameters": {
+			"container": {
+				"type": "string",
+				"value": "suralabadlsdev"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
