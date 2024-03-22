@@ -5,6 +5,10 @@
 			"container": {
 				"type": "string",
 				"value": "suralabadlsdev"
+			},
+			"targetpath": {
+				"type": "string",
+				"value": "target"
 			}
 		}
 	},
