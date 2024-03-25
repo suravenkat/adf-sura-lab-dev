@@ -1,0 +1,23 @@
+{
+	"name": "ds_sourceLastmodified_adls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourceADLSCopyFiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "source",
+				"fileSystem": "suralabadlsdev"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
