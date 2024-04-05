@@ -14,6 +14,12 @@
 		"ls_sourceADLSCopyFiles_accountKey": {
 			"value": ""
 		},
+		"AzureKeyVault_sql_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultlabadf.vault.azure.net/"
+		},
+		"ls_keyvault_to_sql_properties_typeProperties_connectionString_secretName": {
+			"value": "labsqlsecretname"
+		},
 		"ls_sourceADLSCopyFiles_properties_typeProperties_url": {
 			"value": "https://suralabadlsdev.dfs.core.windows.net"
 		},

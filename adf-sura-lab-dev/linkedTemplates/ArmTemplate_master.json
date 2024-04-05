@@ -19,6 +19,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_sourceADLSCopyFiles'"
 		},
+		"AzureKeyVault_sql_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://keyvaultlabadf.vault.azure.net/"
+		},
+		"ls_keyvault_to_sql_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "labsqlsecretname"
+		},
 		"ls_sourceADLSCopyFiles_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://suralabadlsdev.dfs.core.windows.net"
@@ -67,6 +75,9 @@
 					"ls_sourceADLSCopyFiles_accountKey": {
 						"value": "[parameters('ls_sourceADLSCopyFiles_accountKey')]"
 					},
+					"AzureKeyVault_sql_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault_sql_properties_typeProperties_baseUrl')]"
+					},
 					"ls_sourceADLSCopyFiles_properties_typeProperties_url": {
 						"value": "[parameters('ls_sourceADLSCopyFiles_properties_typeProperties_url')]"
 					}
@@ -87,6 +98,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_keyvault_to_sql_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('ls_keyvault_to_sql_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
@@ -107,6 +121,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-sura-lab-dev_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adf-sura-lab-dev_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"TumblingWindowTrigger_properties_pipeline_parameters_startdate": {
 						"value": "[parameters('TumblingWindowTrigger_properties_pipeline_parameters_startdate')]"
@@ -117,7 +151,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adf-sura-lab-dev_ArmTemplate_1')]"
+				"[resourceId('Microsoft.Resources/deployments', 'adf-sura-lab-dev_ArmTemplate_2')]"
 			]
 		}
 	]
