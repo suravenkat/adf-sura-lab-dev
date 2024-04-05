@@ -1,0 +1,23 @@
+{
+	"name": "ds_webactivity_copy_Target",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourceADLSCopyFiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "webactivity.json",
+				"fileSystem": "suralabadlsdev"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "",
+			"firstRowAsHeader": false,
+			"quoteChar": ""
+		},
+		"schema": []
+	}
+}
